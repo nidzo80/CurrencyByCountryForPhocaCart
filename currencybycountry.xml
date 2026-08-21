@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade" version="3">
+    <name>plg_system_currencybycountry</name>
+    <creationDate>11.08.2026.</creationDate>
+    <author>Nikola Đurić Nidžo</author>
+    <copyright>Copyright (C) 2026. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later</license>
+    <version>0.1.0</version>
+    <description>PLG_SYSTEM_CURRENCYBYCOUNTRY_XML_DESCRIPTION</description>
+    <namespace path="src">YourVendor\Plugin\Pcv\Currencybycountry</namespace>
+
+    <scriptfile>install.php</scriptfile>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_currencybycountry.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_currencybycountry.sys.ini</language>
+        <language tag="sv-SE">sv-SE/sv-SE.plg_system_currencybycountry.ini</language>
+        <language tag="sv-SE">sv-SE/sv-SE.plg_system_currencybycountry.sys.ini</language>
+        <language tag="sr-YU">sr-YU/sr-YU.plg_system_currencybycountry.ini</language>
+        <language tag="sr-YU">sr-YU/sr-YU.plg_system_currencybycountry.sys.ini</language>
+    </languages>
+
+    <files>
+        <folder>services</folder>
+        <folder>models</folder>
+        <folder plugin="currencybycountry">src</folder>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+
+                <field name="mode"
+                       type="list"
+                       label="PLG_SYSTEM_CURRENCYBYCOUNTRY_FIELD_MODE_LABEL"
+                       description="PLG_SYSTEM_CURRENCYBYCOUNTRY_FIELD_MODE_DESC"
+                       default="suggest"
+                >
+                    <option value="off">PLG_SYSTEM_CURRENCYBYCOUNTRY_MODE_OFF</option>
+                    <option value="suggest">PLG_SYSTEM_CURRENCYBYCOUNTRY_MODE_SUGGEST</option>
+                    <option value="auto">PLG_SYSTEM_CURRENCYBYCOUNTRY_MODE_AUTO</option>
+                </field>
+
+                <field name="mapping"
+                       type="subform"
+                       label="PLG_SYSTEM_CURRENCYBYCOUNTRY_FIELD_MAPPING_LABEL"
+                       description="PLG_SYSTEM_CURRENCYBYCOUNTRY_FIELD_MAPPING_DESC"
+                       multiple="true"
+                       layout="joomla.form.field.subform.repeatable-table"
+                       formsource="plugins/system/currencybycountry/models/forms/mapping.xml"
+                />
+
+            </fieldset>
+        </fields>
+    </config>
+
+</extension>
